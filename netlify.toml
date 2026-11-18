@@ -1,0 +1,52 @@
+# Netlify settings. You shouldn't need to change anything here.
+
+[build]
+  # Plain HTML + JavaScript, so there's nothing to build:
+  # Netlify publishes the public/ folder exactly as it is.
+  publish = "public"
+  command = ""
+
+[functions]
+  # The small server bits: tracking clicks, sign-ups, Stripe sales, the dashboard.
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[dev]
+  # `npm run dev` = run it on your own computer at http://localhost:8888
+  publish = "public"
+  port = 8888
+  autoLaunch = false
+
+# An affiliate's private stats page: /s/<their secret token>
+[[redirects]]
+  from = "/s/:token"
+  to = "/stats.html"
+  status = 200
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin.html"
+  status = 200
+
+# Keep the stats and admin pages out of Google. The sign-up page (/) can be found.
+[[headers]]
+  for = "/s/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Referrer-Policy = "no-referrer"
+[[headers]]
+  for = "/stats.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Referrer-Policy = "no-referrer"
+[[headers]]
+  for = "/admin*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Referrer-Policy = "no-referrer"
+
+# Settings: always fetch the latest, so your changes show up straight away.
+[[headers]]
+  for = "/affiliates.config.json"
+  [headers.values]
+    Cache-Control = "no-cache"

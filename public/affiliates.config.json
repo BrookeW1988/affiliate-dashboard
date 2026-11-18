@@ -1,0 +1,73 @@
+{
+  "business": {
+    "name": "Your Business",
+    "website": "https://example.com",
+    "contactEmail": "hello@example.com",
+    "logo": ""
+  },
+
+  "destination": "https://example.com/tickets",
+
+  "money": {
+    "currency": "AUD",
+    "locale": "en-AU"
+  },
+
+  "signup": {
+    "open": true,
+    "commissionPct": 15,
+    "reservedCodes": ["admin", "api", "go", "join", "stats", "help", "support", "team", "official"]
+  },
+
+  "look": {
+    "colours": {
+      "background": "#fff8f3",
+      "card": "#ffffff",
+      "text": "#2b2230",
+      "muted": "#7a6f80",
+      "accent": "#e4457a",
+      "accentText": "#ffffff",
+      "line": "#eadfe3"
+    },
+    "fonts": {
+      "headings": "Fraunces",
+      "body": "Inter"
+    }
+  },
+
+  "words": {
+    "joinTitle": "Share us, earn {pct}%",
+    "joinIntro": "Love what we do? Get your own link and earn {pct}% of every sale that comes through it. No cost, no catch.",
+    "steps": [
+      { "title": "Grab your link", "text": "Sign up below and you get your own link straight away." },
+      { "title": "Share it", "text": "Stories, group chats, your email list: wherever your people are." },
+      { "title": "Earn {pct}%", "text": "Every sale through your link earns you {pct}%. Watch it add up on your own live stats page." },
+      { "title": "Get paid", "text": "We tally your commission and pay you by bank transfer." }
+    ],
+    "payoutTerms": "Commission is paid by bank transfer after each sale has cleared. Refunded sales don't earn commission.",
+    "closedMessage": "Sign-ups are closed right now. Email us if you'd like to be an affiliate.",
+    "statsTitle": "Hi {name}, here's how you're going",
+    "statsIntro": "Every share counts. Here's what you've brought in so far.",
+    "statsNoSales": "No sales yet. Your first one's coming: share your link and watch this fill up.",
+    "statsSignOff": "Thank you for sharing us with your people."
+  },
+
+  "shareKit": {
+    "captions": [
+      {
+        "label": "Instagram or Facebook caption",
+        "text": "I've been telling everyone about Your Business, so now I've got my own link 👉 {link}"
+      },
+      {
+        "label": "Email or group chat",
+        "text": "Hey! You know how I keep talking about Your Business? Here's my link if you want in: {link}"
+      }
+    ],
+    "images": []
+  },
+
+  "email": {
+    "subject": "You're in! Your affiliate link is inside",
+    "intro": "Thanks for joining our affiliate program. Here's your link and your private stats page."
+  }
+}

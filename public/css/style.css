@@ -1,0 +1,125 @@
+/* One stylesheet for every page. The colours and fonts come from
+   affiliates.config.json (js/common.js sets them), so you shouldn't need to edit
+   this to make it yours. */
+
+:root {
+  --bg: #fff8f3;
+  --card: #ffffff;
+  --text: #2b2230;
+  --muted: #7a6f80;
+  --accent: #e4457a;
+  --accent-text: #ffffff;
+  --line: #eadfe3;
+  --font-head: Georgia, serif;
+  --font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { font-family: var(--font-head); line-height: 1.15; margin: 0 0 0.4em; }
+h1 { font-size: clamp(2rem, 6vw, 3rem); }
+h2 { font-size: 1.4rem; }
+h3 { font-size: 1.05rem; }
+p { margin: 0 0 1em; }
+a { color: var(--accent); }
+
+.page { max-width: 960px; margin: 0 auto; padding: 40px 16px 64px; }
+.narrow { max-width: 640px; }
+.centre { text-align: center; }
+.muted { color: var(--muted); }
+.small { font-size: 0.85rem; }
+.logo { max-height: 64px; max-width: 220px; margin-bottom: 20px; }
+.stack > * + * { margin-top: 28px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.grid { display: grid; gap: 12px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 640px) { .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.step .num { color: var(--accent); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em; }
+
+.stat { text-align: center; padding: 22px 12px; }
+.stat .value { font-family: var(--font-head); font-size: clamp(1.4rem, 5vw, 2rem); display: block; }
+.stat .label { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+.stat.accent { border-color: var(--accent); }
+.stat.accent .value { color: var(--accent); }
+
+/* Forms */
+form { display: grid; gap: 14px; }
+label { display: grid; gap: 6px; font-weight: 600; font-size: 0.9rem; }
+label .hint { font-weight: 400; color: var(--muted); font-size: 0.82rem; }
+input, textarea, select {
+  font: inherit;
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--text);
+}
+input:focus, textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.two { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+button, .button {
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-text);
+  padding: 11px 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  display: inline-block;
+}
+button.quiet, .button.quiet { background: transparent; color: var(--text); border-color: var(--line); }
+button.small, .button.small { padding: 5px 12px; font-size: 0.82rem; }
+button:disabled { opacity: 0.5; cursor: default; }
+
+.error { color: #b3261e; font-weight: 600; }
+.ok { color: #1e7a3c; font-weight: 600; }
+
+/* A link with a copy button */
+.copy-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: flex-start; }
+.copy-row code {
+  flex: 1 1 240px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  padding: 11px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  font-size: 0.9rem;
+}
+.caption { white-space: pre-wrap; background: var(--bg); border-radius: 10px; padding: 12px; margin: 8px 0; }
+
+.kit { display: grid; gap: 12px; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+.kit img { width: 100%; border-radius: 10px; border: 1px solid var(--line); display: block; }
+
+/* Admin table: scrolls sideways on a phone instead of squashing */
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
+table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; vertical-align: top; }
+th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+tr:last-child td { border-bottom: 0; }
+td.num, th.num { text-align: right; }
+.actions { display: flex; gap: 6px; justify-content: flex-end; }
+.banner { padding: 12px 16px; border-radius: 10px; background: #fff4d6; border: 1px solid #f0d58a; }
+
+ul.plain { list-style: none; padding: 0; margin: 0; }
+ul.plain li { display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+ul.plain li:last-child { border-bottom: 0; }

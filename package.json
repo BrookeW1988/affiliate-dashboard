@@ -1,0 +1,22 @@
+{
+  "name": "affiliate-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Your own affiliate program: a sign-up page, a tracked link for every affiliate, their own live stats page, and a dashboard for you. Counts real Stripe sales. Runs free on Netlify.",
+  "license": "MIT",
+  "scripts": {
+    "setup": "npm install && bash tools/new-keys.sh",
+    "dev": "npx -y netlify-cli@27.14.2 dev --offline",
+    "check": "node tools/check.mjs",
+    "fake-sale": "node tools/fake-sale.mjs",
+    "deploy:test": "npx -y netlify-cli@27.14.2 deploy",
+    "deploy:live": "npx -y netlify-cli@27.14.2 deploy --prod"
+  },
+  "dependencies": {
+    "@netlify/blobs": "11.1.6"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
